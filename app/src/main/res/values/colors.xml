@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="goldenrod">#D5A021</color>
+    <color name="alabaster">#EDE7D9</color>
+    <color name="taupeGrey">#A49694</color>
+    <color name="dimGrey">#736B60</color>
+    <color name="taupe">#4B4237</color>
+</resources>

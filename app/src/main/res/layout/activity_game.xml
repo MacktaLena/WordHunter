@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alabaster">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/layout_height"
+        android:background="@color/goldenrod"
+        android:text="@string/guess_the_word"
+        android:textAlignment="center"
+        android:textColor="@color/taupe"
+        android:textColorLink="@color/taupe"
+        android:textSize="@dimen/font_size_big_button"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_word_to_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:shadowColor="@color/taupe"
+        android:text="@string/placeholderWordToGuess"
+        android:textColor="@color/taupe"
+        android:textSize="@dimen/font_size_headline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <EditText
+        android:id="@+id/et_letterInput"
+        android:layout_width="@dimen/layout_height"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/extralarge_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:autofillHints=""
+        android:contentDescription="@string/enter_letter"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="1"
+        android:shadowColor="@color/taupe"
+        android:textAlignment="center"
+        android:textColor="@color/taupe"
+        android:textColorHighlight="@color/taupe"
+        android:textColorHint="@color/taupe"
+        app:layout_constraintEnd_toStartOf="@+id/btn_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_word_to_guess" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/extralarge_margin"
+        android:backgroundTint="@color/goldenrod"
+        android:text="@string/okButton"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_word_to_guess" />
+
+    <TextView
+        android:id="@+id/tv_lettersguessed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/extralarge_margin"
+        android:text="@string/letters_guessed"
+        android:textColor="@color/taupe"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/failedAttempts" />
+
+    <ImageView
+        android:id="@+id/failedAttempts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        app:layout_constraintBottom_toTopOf="@+id/tv_lettersguessed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_letterInput"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btn_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/extralarge_margin"
+        android:backgroundTint="@color/taupeGrey"
+        android:text="@string/share"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/failedAttempts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
