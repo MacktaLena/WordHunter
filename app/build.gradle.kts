@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("org.jetbrains.kotlin.plugin.serialization")
-
 }
 
 android {
@@ -59,6 +58,8 @@ dependencies {
 
     // Lifecycle Runtime (für lifecyclebewusste Coroutine-Scopes)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation(libs.androidx.lifecycle.viewmodel.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

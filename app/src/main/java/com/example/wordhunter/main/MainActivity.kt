@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         startButtonEasy.setOnClickListener {
             val startGameActivity = Intent(this, GameActivity::class.java)
-            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "animal")
+            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "easy")
             startActivity(startGameActivity)
         }
 
         startButtonDifficult.setOnClickListener {
             val startGameActivity = Intent(this, GameActivity::class.java)
-            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "country")
+            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "difficult")
             startActivity(startGameActivity)
         }
 
