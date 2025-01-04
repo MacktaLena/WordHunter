@@ -27,7 +27,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var lettersGuessedTextView: TextView
     private lateinit var failedAttemptsImageView: ImageView
     private lateinit var wordToGuessTextView: TextView
-    private lateinit var categoryTextView:TextView
+    private lateinit var categoryTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +78,7 @@ class GameActivity : AppCompatActivity() {
             }
         }
 
-        submitButton.setOnClickListener{
+        submitButton.setOnClickListener {
             if (letterInputEditText.text.isNotEmpty() && letterInputEditText.text.toString().length == 1) {
                 gameViewModel.processInput(readLetterInput(), gameViewModel.wordToGuess)
                 Log.i(LOG_TAG, "Wort: ${gameViewModel.wordToGuess}")
@@ -118,11 +118,6 @@ class GameActivity : AppCompatActivity() {
         return letterInput
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.i(LOG_TAG, "Game is started")
-    }
-
 
     //erstellt das Dialogfenster, wenn das Spiel aus ist
     fun createDialog(title: String) {
@@ -143,75 +138,4 @@ class GameActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
-//hier noch corotutines
-
-    /*private fun setupGame() {
-    val httpClient = createHttpClient()
-    lifecycleScope.launch {
-        val apiWord: ApiWord =
-            httpClient.get("https://www.wordgamedb.com/api/v1/words/random").body()
-    }
-    }*/
-
-    /*guessedLetters observable machen -> live Data
-    organisiert die Anzeige der geratenen Buchstaben
-    @SuppressLint("SetTextI18n")
-    private fun setGuessedLetters() {
-    lettersGuessedTextView.text = getString(R.string.letters_guessed) + guessedLetters
-    }*/
-
-    /*Share-Funktion mittels Button
-    shareButton.setOnClickListener {
-    val implicitIntent = Intent(Intent.ACTION_SEND)
-    implicitIntent.type = "text/plain"
-    implicitIntent.putExtra(Intent.EXTRA_TEXT, "Welches Wort ist gesucht: $currentScore")
-    val chooser = Intent.createChooser(implicitIntent, "Share your solution with")
-    startActivity(chooser)
-    }*/
-//enthält die Logik, wenn ein falscher Buchstabe eingegeben wird
-    /*private fun handleIncorrectGuess() {
-    //Log.i(LOG_TAG, incorrectGuess.toString())
-
-    if (gameViewModel.incorrectGuess == 1) {
-        failedAttemptsImageView.setImageResource(R.mipmap.flower1)
-    }
-    if (gameViewModel.incorrectGuess == 2) {
-        failedAttemptsImageView.setImageResource(R.mipmap.flower2)
-    }
-    if (gameViewModel.incorrectGuess == 3) {
-        failedAttemptsImageView.setImageResource(R.mipmap.flower3)
-    }
-    if (gameViewModel.incorrectGuess == 4) {
-        failedAttemptsImageView.setImageResource(R.mipmap.flower4)
-    }
-    if (gameViewModel.incorrectGuess == 5) {
-        failedAttemptsImageView.setImageResource(R.mipmap.flower5)
-    }
-    if (gameViewModel.incorrectGuess == 6) {
-        createDialog("GAME OVER")
-    }
-    }*/
-
-    /*override fun onStop() {
-    super.onStop()
-
-    val sharedPreferences =
-    this.getSharedPreferences("Amount_of_errors", MODE_PRIVATE)
-    with(sharedPreferences.edit()) {
-    putInt("AmountOfErrors", gameViewModel.incorrectGuess)
-    apply()
-    }
-    }*/
-
-
-    /*private fun logSharedPreferences() {
-    //Die Anzahl der Fehler aus dem letzten Spiel werden aus dem Speicher aufgerufen und geloggt.
-    val sharedPreferences = this.getSharedPreferences("Amount_of_errors", MODE_PRIVATE)
-    val storedNumberOfErrors = sharedPreferences.getInt("AmountOfErrors", 6)
-    Log.i(
-        LOG_TAG,
-        "Im letzten Spiel wurden " + storedNumberOfErrors + " falsche Buchstaben geraten."
-    )
-    }*/
 }
