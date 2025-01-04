@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name" translatable="false">Word Hunter</string>
+    <string name="app_name" translatable="false">Wordhunter</string>
     <string name="easy">Plants</string>
     <string name="difficult">Countries</string>
-    <string name="welcome">Welcome to \nGuess the Word</string>
-    <string name="placeholderWordToGuess">word to guess</string>
+    <string name="welcome">Welcome to \nWordhunter</string>
+    <string name="placeholderWordToGuess">wordhunter</string>
     <string name="letterInput">Letter:</string>
     <string name="okButton">OK</string>
-    <string name="guess_the_word">Guess the Word</string>
+    <string name="guess_the_word">Wordhunter</string>
     <string name="share">Share</string>
     <string name="enter_letter">Enter a letter</string>
     <string name="letters_guessed">Letters guessed:</string>

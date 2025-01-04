@@ -8,14 +8,15 @@ import com.example.wordhunter.api.ApiAccess
 import com.example.wordhunter.repository.WordRepository
 
 
+
 class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    //private val apiAccess = ApiAccess()
-    //private val httpClient = apiAccess.createHttpClient() // HttpClient aus ApiAccess erzeugen
+    private val apiAccess = ApiAccess()
+    private val httpClient = apiAccess.createHttpClient()
 
-    //private val wordRepository = WordRepository(httpClient)
+    private val wordRepository = WordRepository(httpClient)
 
-    private var _currentWord = MutableLiveData("H_ _allo")
+    private var _currentWord = MutableLiveData("WORDHUNTER")
     var currentWord: LiveData<String> = _currentWord
 
     private var _guessedLetters = MutableLiveData<List<Char>>(emptyList())
@@ -27,33 +28,33 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     private var _gameWon = MutableLiveData(false)
     var gameWon: LiveData<Boolean> = _gameWon
 
-    private val level = readLevel()
     var wordToGuess = ""
 
-    init {
-        readWord()
-    }
+    private val level = readLevel()
 
     fun readLevel(): String {
         return savedStateHandle["EXTRA_KEY_LEVEL"] ?: "plant"
     }
 
-    fun readWord() {
-        val wordRepository = WordRepository()
+    //readAll-Funktion bevor API implementiert wurde:
+    /*fun readWord() {
         wordToGuess = wordRepository.readAll(level).value.toString()
+        _currentWord.value = startingPoint(wordToGuess)
+    }*/
+
+
+    suspend fun readWord() {
+            if (level == "plant") {
+                wordToGuess = wordRepository.loadWordPlant().uppercase()
+            } else {
+                wordToGuess = wordRepository.loadWordCountry().uppercase()
+            }
+    }
+
+    fun convertWordToGuess() {
         _currentWord.value = startingPoint(wordToGuess)
     }
 
-    //coroutines
-    /*fun readWord() {
-        if (level == "plant") {
-            wordToGuess = wordRepository.loadWordPlant()
-        } else {
-            wordToGuess = wordRepository.loadWordCountry()
-
-        }
-            _currentWord.value = startingPoint(wordToGuess)
-    }*/
 
     fun startingPoint(solution: String): String {
         val range = solution.length
@@ -72,9 +73,7 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
             //wenn Buchstabe vorkommt, startet chekcInputInWord
             if (letterInput in solution) {
                 _currentWord.value = checkInputInWord(letterInput, solution)
-                //wordToGuessTextView.text = currentScore
                 if (checkFinished()) {
-                    //createDialog("GEWONNEN")
                     _gameWon.value = true
                 }
             } else {
@@ -83,8 +82,6 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
             }
         }
     }
-
-//setzt geratenen Buchstaben an der richtigen Stelle im Lösungswort ein und gibt dieses zurück
 
     fun checkInputInWord(
         letterInput: Char,
