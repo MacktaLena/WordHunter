@@ -21,25 +21,27 @@ import kotlinx.coroutines.withContext
 class GameActivity : AppCompatActivity() {
     private val gameViewModel: GameViewModel by viewModels()
 
-    val LOG_TAG = "GameActivity"
+    private val LOG_TAG = "GameActivity"
 
-    lateinit var letterInputEditText: EditText
-    lateinit var lettersGuessedTextView: TextView
-    lateinit var failedAttemptsImageView: ImageView
-    lateinit var wordToGuessTextView: TextView
+    private lateinit var letterInputEditText: EditText
+    private lateinit var lettersGuessedTextView: TextView
+    private lateinit var failedAttemptsImageView: ImageView
+    private lateinit var wordToGuessTextView: TextView
+    private lateinit var categoryTextView:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
 
-        val level = gameViewModel.readLevel()
-        Log.i(LOG_TAG, "Chosen Level: $level")
+        val category = gameViewModel.readCategory()
+        Log.i(LOG_TAG, "Chosen Level: $category")
 
         wordToGuessTextView = (findViewById(R.id.tv_word_to_guess))
         failedAttemptsImageView = (findViewById(R.id.failedAttempts))
         lettersGuessedTextView = findViewById(R.id.tv_lettersguessed)
         letterInputEditText = findViewById(R.id.et_letterInput)
+        categoryTextView = findViewById(R.id.tv_category)
 
         //Wort aus dem Repository geladen:
         lifecycleScope.launch(Dispatchers.IO) {
@@ -48,9 +50,11 @@ class GameActivity : AppCompatActivity() {
 
             withContext(Dispatchers.Main) {
                 gameViewModel.convertWordToGuess()
+                wordToGuessTextView.text = gameViewModel.currentWord.value
             }
         }
 
+        categoryTextView.text = getString(R.string.category, category)
 
         val submitButton = findViewById<Button>(R.id.btn_submit)
 

@@ -25,20 +25,16 @@ class MainActivity : AppCompatActivity() {
         }
         val startButtonEasy = findViewById<Button>(R.id.btn_start_easy)
         val startButtonDifficult = findViewById<Button>(R.id.btn_start_diff)
-        val startPicture = findViewById<ImageView>(R.id.iv_picture)
-
-        startPicture.setImageResource(R.mipmap.flower)
-
 
         startButtonEasy.setOnClickListener {
             val startGameActivity = Intent(this, GameActivity::class.java)
-            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "plant")
+            startGameActivity.putExtra("EXTRA_KEY_CATEGORY", "plants")
             startActivity(startGameActivity)
         }
 
         startButtonDifficult.setOnClickListener {
             val startGameActivity = Intent(this, GameActivity::class.java)
-            startGameActivity.putExtra("EXTRA_KEY_LEVEL", "country")
+            startGameActivity.putExtra("EXTRA_KEY_CATEGORY", "countries")
             startActivity(startGameActivity)
         }
 

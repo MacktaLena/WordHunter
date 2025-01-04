@@ -7,9 +7,10 @@
     <string name="letterInput">Letter:</string>
     <string name="okButton">OK</string>
     <string name="guess_the_word">Wordhunter</string>
-    <string name="share">Share</string>
+    <string name="category">Category:  %1$s</string>
     <string name="enter_letter">Enter a letter</string>
     <string name="letters_guessed">Letters guessed:</string>
+    <string name="chooseCategory">Choose a category:</string>
     <string name="textview" translatable="false">TextView</string>
 
 </resources>

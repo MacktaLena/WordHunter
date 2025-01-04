@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/alabaster"
+    android:background="@color/white"
     tools:context=".main.MainActivity">
 
     <TextView
@@ -21,17 +21,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/chooseCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="228dp"
+        android:text="@string/chooseCategory"
+        android:textAlignment="center"
+        android:textColor="@color/taupe"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_start_easy"
         android:layout_width="@dimen/big_button_width"
         android:layout_height="@dimen/big_button_height"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginTop="144dp"
         android:backgroundTint="@color/goldenrod"
         android:text="@string/easy"
-        android:textColorLink="@color/white"
         android:textColor="@color/white"
+        android:textColorLink="@color/white"
         android:textSize="@dimen/font_size_big_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/begruessung" />
 
@@ -39,25 +53,14 @@
         android:id="@+id/btn_start_diff"
         android:layout_width="@dimen/big_button_width"
         android:layout_height="@dimen/big_button_height"
-        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/taupeGrey"
         android:text="@string/difficult"
         android:textColor="@color/white"
         android:textSize="@dimen/font_size_big_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_easy" />
-
-    <ImageView
-        android:id="@+id/iv_picture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/medium_margin"
-        android:layout_marginBottom="@dimen/medium_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start_diff"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

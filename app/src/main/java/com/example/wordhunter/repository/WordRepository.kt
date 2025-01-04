@@ -31,6 +31,8 @@ class WordRepository(private val httpClient: HttpClient) {
         }
     }
 
+
+    // hier die readAll-Funktionen, wie ich sie für den Block LiveData umgesetzt habe
     fun readAll(level: String): LiveData<String> {
         val wordToGuess = MutableLiveData("")
         val easyWords = listOf("nest", "mauer", "schnee", "herr", "stern", "reise")

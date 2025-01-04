@@ -30,21 +30,22 @@ class GameViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
 
     var wordToGuess = ""
 
-    private val level = readLevel()
+    private val category = readCategory()
 
-    fun readLevel(): String {
-        return savedStateHandle["EXTRA_KEY_LEVEL"] ?: "plant"
+
+    fun readCategory(): String {
+        return savedStateHandle["EXTRA_KEY_CATEGORY"] ?: "plants"
     }
 
-    //readAll-Funktion bevor API implementiert wurde:
-    /*fun readWord() {
+    /*readAll-Funktion für Block LiveData:
+    fun readWord() {
         wordToGuess = wordRepository.readAll(level).value.toString()
         _currentWord.value = startingPoint(wordToGuess)
     }*/
 
 
     suspend fun readWord() {
-            if (level == "plant") {
+            if (category == "plants") {
                 wordToGuess = wordRepository.loadWordPlant().uppercase()
             } else {
                 wordToGuess = wordRepository.loadWordCountry().uppercase()

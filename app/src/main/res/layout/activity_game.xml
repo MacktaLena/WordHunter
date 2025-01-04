@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/alabaster">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/textView5"
@@ -96,15 +96,15 @@
         app:layout_constraintTop_toBottomOf="@+id/et_letterInput"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/btn_share"
+    <TextView
+        android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_margin"
         android:layout_marginTop="@dimen/extralarge_margin"
-        android:backgroundTint="@color/taupeGrey"
-        android:text="@string/share"
-        android:textColor="@color/white"
+        android:text="@string/category"
+        android:textColor="@color/taupe"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/failedAttempts" />
 
